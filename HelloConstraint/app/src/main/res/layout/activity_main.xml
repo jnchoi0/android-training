@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/button_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/show_count"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:onClick="showToast"
+        android:text="@string/button_label_toast"
+        app:layout_constraintBottom_toTopOf="@+id/count_reset"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/show_count" />
+
+    <Button
+        android:id="@+id/count_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/show_count"
+        android:layout_alignBottom="@id/button_toast"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/gray"
+        android:onClick="countReset"
+        android:text="@string/button_label_reset"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/button_count"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/button_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/show_count"
+        android:layout_alignBottom="@id/count_reset"
+        android:layout_marginStart="16dp"
+        android:onClick="countUp"
+        android:text="@string/button_label_count"
+        app:layout_constraintBottom_toBottomOf="@+id/show_count"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/show_count"
+        android:layout_width="269dp"
+        android:layout_height="211dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="29dp"
+        android:background="#FFFF00"
+        android:text="@string/count_initial_value"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="160sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/count_reset"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
