@@ -22,15 +22,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("TAG", "onCreate: MainActivity");
         setContentView(R.layout.activity_main);
         mShowCount = (TextView) findViewById(R.id.show_count);
         if (savedInstanceState != null) {
             Log.d("TAG", "has saved instace");
+            mCount = Integer.parseInt(savedInstanceState.getString("counter"));
+            Log.d("TAG", "mCount: "+ mCount);
 //            mShowCount.setText(String.valueOf(savedInstanceState.getInt("count")));
-            mShowCount.setText(Integer.toString(mCount));
-
         }
-
+        mShowCount.setText(Integer.toString(mCount));
     }
 
     public void showToast(View view) {
@@ -58,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
         Log.d("Tag", "onSaveInstanceState: MainActivity");
         outState.putInt("count", mCount);
-        super.onSaveInstanceState(outState);
     }
 }
